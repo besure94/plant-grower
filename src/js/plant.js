@@ -14,9 +14,9 @@ export class PlantTwo {
   }
 }
 
-export const changeState = (state, prop) => {
+export const changeState = (state, prop, value) => {
   return {
     ...state,
-    [prop]: (state[prop] || 0) + 1
+    [prop]: (state[prop] || 0) + value
   }
 };

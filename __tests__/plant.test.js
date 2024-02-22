@@ -11,12 +11,12 @@ describe('Plant grower application tests', () => {
     expect(plant.light).toEqual(0);
   });
 
-  test('App should contain a method which can alter properties of any object.', () => {
+  test('The "changeState" method should be able to property any property of an object by any value.', () => {
     const plant = new Plant();
     const plantTwo = new PlantTwo();
-    const result = changeState(plant, "water");
-    const resultTwo = changeState(plantTwo, "soil");
-    expect(result.water).toEqual(1);
-    expect(resultTwo.soil).toEqual(1);
+    const resultOne = changeState(plant, "water", 10);
+    const resultTwo = changeState(plantTwo, "light", 5);
+    expect(resultOne.water).toEqual(10);
+    expect(resultTwo.light).toEqual(5);
   });
 });

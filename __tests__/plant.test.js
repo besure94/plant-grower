@@ -19,4 +19,17 @@ describe('Plant grower application tests', () => {
     expect(resultOne.water).toEqual(10);
     expect(resultTwo.light).toEqual(5);
   });
+
+  test('The "changeState" method should be curried, with an outer function and two inner functions, each all taking one argument.', () => {
+    const plant = new Plant();
+    const feed = changeState("soil");
+    const feedResult = feed(5)(plant);
+    const hydrate = changeState("water");
+    const hydrateResult = hydrate(7)(plant);
+    const giveLight = changeState("light");
+    const lightResult = giveLight(3)(plant);
+    expect(plant.soil).toEqual(feedResult);
+    expect(plant.water).toEqual(hydrateResult);
+    expect(plant.light).toEqual(lightResult);
+  });
 });

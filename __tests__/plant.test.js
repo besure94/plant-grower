@@ -1,6 +1,7 @@
 import Plant from '../src/js/plant.js';
 import { hydrate } from '../src/js/plant.js';
 import { feed } from '../src/js/plant.js';
+import { changePlantState } from '../src/js/plant.js';
 
 describe('Plant grower application tests', () => {
 
@@ -21,5 +22,11 @@ describe('Plant grower application tests', () => {
     const plant = new Plant();
     const result = feed(plant);
     expect(result.soil).toEqual(1);
+  });
+
+  test('App should contain a method which can alter any of the plants properties', () => {
+    const plant = new Plant();
+    const result = changePlantState(plant, "light");
+    expect(result.light).toEqual(1);
   });
 });

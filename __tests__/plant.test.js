@@ -1,5 +1,6 @@
 import Plant from '../src/js/plant.js';
 import { hydrate } from '../src/js/plant.js';
+import { feed } from '../src/js/plant.js';
 
 describe('Plant grower application tests', () => {
 
@@ -14,5 +15,11 @@ describe('Plant grower application tests', () => {
     const plant = new Plant();
     const result = hydrate(plant);
     expect(result.water).toEqual(1);
+  });
+
+  test('App should contain a method which adds to the plants "soil" property.', () => {
+    const plant = new Plant();
+    const result = feed(plant);
+    expect(result.soil).toEqual(1);
   });
 });

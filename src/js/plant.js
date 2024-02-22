@@ -13,5 +13,9 @@ export const hydrate = (plant) => {
   }
 };
 
-const waterPlant = hydrate(Plant);
-waterPlant
+export const feed = (plant) => {
+  return {
+    ...plant,
+    soil: (plant.soil || 0) + 1
+  }
+};

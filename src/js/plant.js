@@ -1,4 +1,12 @@
-export default class Plant {
+export class Plant {
+  constructor() {
+    this.water = 0;
+    this.soil = 0;
+    this.light = 0;
+  }
+}
+
+export class PlantTwo {
   constructor() {
     this.water = 0;
     this.soil = 0;

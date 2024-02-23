@@ -22,3 +22,12 @@ export const changeState = (prop) => {
     })
   }
 };
+
+export const storeState = () => {
+  let currentState = {};
+  return (stateChangeFunction) => {
+    const newState = stateChangeFunction(currentState);
+    currentState = {...newState};
+    return newState;
+  }
+}

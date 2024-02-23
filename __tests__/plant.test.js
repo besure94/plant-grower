@@ -2,6 +2,7 @@ import { Plant } from '../src/js/plant.js';
 import { PlantTwo } from '../src/js/plant.js';
 import { changeState } from '../src/js/plant.js';
 import { storeState } from '../src/js/plant.js';
+// import { stateControl } from '../src/js/plant.js';
 
 describe('Plant grower application tests', () => {
 
@@ -57,5 +58,11 @@ describe('Plant grower application tests', () => {
     expect(springWateredPlant).toEqual({ water: 10 });
     expect(tapWateredPlant).toEqual({ water: 15 });
     expect(rancidWateredPlant).toEqual({ water: 10 });
+  });
+
+  test('App should be able to access an objects state without changing it.', () => {
+    const stateControl = storeState();
+    const currentState = stateControl();
+    expect(currentState).toEqual({});
   });
 });

@@ -31,5 +31,3 @@ export const storeState = () => {
     return newState;
   }
 }
-
-// export const stateControl = storeState();

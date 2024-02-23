@@ -2,7 +2,6 @@ import { Plant } from '../src/js/plant.js';
 import { PlantTwo } from '../src/js/plant.js';
 import { changeState } from '../src/js/plant.js';
 import { storeState } from '../src/js/plant.js';
-// import { stateControl } from '../src/js/plant.js';
 
 describe('Plant grower application tests', () => {
 

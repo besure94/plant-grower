@@ -11,16 +11,7 @@ describe('Plant grower application tests', () => {
     expect(plant.light).toEqual(0);
   });
 
-  test('The "changeState" method should be able to property any property of an object by any value.', () => {
-    const plant = new Plant();
-    const plantTwo = new PlantTwo();
-    const resultOne = changeState(plant, "water", 10);
-    const resultTwo = changeState(plantTwo, "light", 5);
-    expect(resultOne.water).toEqual(10);
-    expect(resultTwo.light).toEqual(5);
-  });
-
-  test('The "changeState" method should be curried, with an outer function and two inner functions, each all taking one argument.', () => {
+  test('Should contain a "changeState" method, which can increment any property of any object by any value.', () => {
     const plant = new Plant();
     const feed = changeState("soil");
     const feedResult = feed(5)(plant);
@@ -28,8 +19,8 @@ describe('Plant grower application tests', () => {
     const hydrateResult = hydrate(7)(plant);
     const giveLight = changeState("light");
     const lightResult = giveLight(3)(plant);
-    expect(plant.soil).toEqual(feedResult);
-    expect(plant.water).toEqual(hydrateResult);
-    expect(plant.light).toEqual(lightResult);
+    expect(feedResult).toEqual({"light": 0, "soil": 5, "water": 0});
+    expect(hydrateResult).toEqual({"light": 0, "soil": 0, "water": 7});
+    expect(lightResult).toEqual({"light": 3, "soil": 0, "water": 0});
   });
 });

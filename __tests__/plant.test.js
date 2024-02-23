@@ -44,8 +44,6 @@ describe('Plant grower application tests', () => {
   });
 
   test('App should contain a "storeState" method, which can store the new state of a modified object.', () => {
-    const plant = new Plant();
-
     const springWater = changeState("water")(10);
     const tapWater = changeState("water")(5);
     const rancidWater = changeState("water")(-5);

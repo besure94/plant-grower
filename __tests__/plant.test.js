@@ -73,4 +73,31 @@ describe('Plant grower application tests', () => {
     expect(uvLightResult).toEqual({ light: 5 });
     expect(noLightResult).toEqual({ light: -1 });
   });
+
+  test('App should have functionality to store state about multiple plant objects.', () => {
+    const plantOneStateControl = storeState();
+    const plantTwoStateControl = storeState();
+    const plantThreeStateControl = storeState();
+
+    const feedHealthyFood = changeState("soil")(5);
+    const feedBadFood = changeState("soil")(-1);
+    const hydrateSpringWater = changeState("water")(5);
+    const hydrateDirtyWater = changeState("water")(-1);
+    const giveUvLight = changeState("light")(5);
+    const lackOfLight = changeState("light")(-1);
+
+    const plantOneNewState = plantOneStateControl(feedHealthyFood);
+    const plantOneNewStateTwo = plantOneStateControl(feedBadFood);
+    const plantTwoNewState = plantTwoStateControl(hydrateSpringWater);
+    const plantTwoNewStateTwo = plantTwoStateControl(hydrateDirtyWater);
+    const plantThreeNewState = plantThreeStateControl(giveUvLight);
+    const plantThreeNewStateTwo = plantThreeStateControl(lackOfLight);
+
+    expect(plantOneNewState).toEqual({ soil: 5 });
+    expect(plantOneNewStateTwo).toEqual({ soil: 4 });
+    expect(plantTwoNewState).toEqual({ water: 5 });
+    expect(plantTwoNewStateTwo).toEqual({ water: 4 });
+    expect(plantThreeNewState).toEqual({ light: 5 });
+    expect(plantThreeNewStateTwo).toEqual({ light: 4 });
+  });
 });

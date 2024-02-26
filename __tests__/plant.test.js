@@ -1,6 +1,9 @@
 import { changeState } from '../src/js/plant.js';
 import { storeState } from '../src/js/plant.js';
 import { createPlant } from '../src/js/plant.js';
+import { canBloom } from '../src/js/plant.js';
+import { canEatBugs } from '../src/js/plant.js';
+import { canGlow } from '../src/js/plant.js';
 
 describe('Plant grower application tests', () => {
 
@@ -102,14 +105,21 @@ describe('Plant grower application tests', () => {
   });
 
   test('App should contain functionality to give different abilities to different plants', () => {
-    const begonia = createPlant();
-    const venusFlyTrap = createPlant();
-    const petunia = createPlant();
+    const begonia = createPlant('begonia');
+    const venusFlyTrap = createPlant('venusFlyTrap');
+    const petunia = createPlant('petunia');
 
-    const canBloom = canBloom(begonia);
-    const canEatBugs = canEatBugs(venusFlyTrap);
-    const canGlow = canGlow(petunia);
+    const canBloomResult = canBloom(begonia);
+    const canEatBugsResult = canEatBugs(venusFlyTrap);
+    const canGlowResult = canGlow(petunia);
 
-    expect(canBloom).toEqual({ name: 'begonia', bloom: function() {"The begonia can bloom. Watch it grow!"} });
+    expect(canBloomResult.name).toEqual("begonia");
+    expect(canBloomResult.bloom()).toEqual("The begonia is blooming. Watch it grow!");
+
+    expect(canEatBugsResult.name).toEqual("venusFlyTrap");
+    expect(canEatBugsResult.eatBugs()).toEqual("The venusFlyTrap can eat bugs. Yum!");
+
+    expect(canGlowResult.name).toEqual("petunia");
+    expect(canGlowResult.glow()).toEqual("The petunia is glowing. Beautiful!");
   });
 });

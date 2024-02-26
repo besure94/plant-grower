@@ -1,6 +1,8 @@
-export const createPlant = () => {
-  return {};
-}
+export const createPlant = (name) => {
+  return {
+    name: name,
+  };
+};
 
 export const changeState = (prop) => {
   return (value) => {
@@ -20,8 +22,17 @@ export const storeState = () => {
   }
 }
 
-// const canBloom = (begonia) => ({
-//   bloom: () => {
-//     return `The ${begonia} is blooming. Watch it grow!`;
-//   }
-// });
+export const canBloom = (plant) => ({
+  name: plant.name,
+  bloom: () => `The ${plant.name} is blooming. Watch it grow!`
+});
+
+export const canEatBugs = (plant) => ({
+  name: plant.name,
+  eatBugs: () => `The ${plant.name} can eat bugs. Yum!`
+});
+
+export const canGlow = (plant) => ({
+  name: plant.name,
+  glow: () => `The ${plant.name} is glowing. Beautiful!`
+});

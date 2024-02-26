@@ -100,4 +100,16 @@ describe('Plant grower application tests', () => {
     expect(plantThreeNewState).toEqual({ light: 5 });
     expect(plantThreeNewStateTwo).toEqual({ light: 4 });
   });
+
+  test('App should contain functionality to give different abilities to different plants', () => {
+    const begonia = createPlant();
+    const venusFlyTrap = createPlant();
+    const petunia = createPlant();
+
+    const canBloom = canBloom(begonia);
+    const canEatBugs = canEatBugs(venusFlyTrap);
+    const canGlow = canGlow(petunia);
+
+    expect(canBloom).toEqual({ name: 'begonia', bloom: function() {"The begonia can bloom. Watch it grow!"} });
+  });
 });

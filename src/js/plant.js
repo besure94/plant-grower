@@ -19,3 +19,9 @@ export const storeState = () => {
     return newState;
   }
 }
+
+// const canBloom = (begonia) => ({
+//   bloom: () => {
+//     return `The ${begonia} is blooming. Watch it grow!`;
+//   }
+// });

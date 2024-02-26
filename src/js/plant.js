@@ -9,8 +9,8 @@ export const changeState = (prop) => {
     return (state) => ({
       ...state,
       [prop]: (state[prop] || 0) + value
-    })
-  }
+    });
+  };
 };
 
 export const storeState = () => {
@@ -19,8 +19,10 @@ export const storeState = () => {
     const newState = stateChangeFunction(currentState);
     currentState = {...newState};
     return newState;
-  }
-}
+  };
+};
+
+export const stateControl = storeState();
 
 export const canBloom = (plant) => ({
   name: plant.name,

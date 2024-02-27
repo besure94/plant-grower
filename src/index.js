@@ -39,6 +39,7 @@ window.addEventListener("load", function() {
   const giveAnotherPlantName = document.getElementById("giveAnotherName");
   const newPlantButton = document.getElementById("createNewPlant");
   const additionalPlantDiv = document.getElementById("additionalPlant");
+
   // event listener for creating a plant
   document.getElementById("createPlant").onclick = function() {
     createPlant.setAttribute("class", "hidden");

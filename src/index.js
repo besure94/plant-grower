@@ -178,7 +178,23 @@ window.addEventListener("load", function() {
     document.getElementById('light-value').innerText = `Light: ${lightenedState.light}`;
   };
 
-  // event listener to show state of a plant
+  document.getElementById("givePlantLight").onclick = function() {
+    const lightenedState = stateControl(giveLight);
+    document.getElementById('lightValue').innerText = `Light: ${lightenedState.light}`;
+  };
 
-  // code to be added
+  document.getElementById("giveUvLight").onclick = function() {
+    const lightenedState = stateControl(uvLight);
+    document.getElementById('lightValue').innerText = `Light: ${lightenedState.light}`;
+  };
+
+  document.getElementById("giveSunlight").onclick = function() {
+    const lightenedState = stateControl(sunlight);
+    document.getElementById('lightValue').innerText = `Light: ${lightenedState.light}`;
+  };
+
+  document.getElementById("giveDarkness").onclick = function() {
+    const lightenedState = stateControl(darkness);
+    document.getElementById('lightValue').innerText = `Light: ${lightenedState.light}`;
+  };
 });

@@ -38,3 +38,6 @@ export const canGlow = (plant) => ({
   name: plant.name,
   glow: () => `The ${plant.name} is glowing. Beautiful!`
 });
+
+export const applyPowerups = (...powerups) => (plant) =>
+  powerups.reduce((p, powerup) => powerup(p), plant);

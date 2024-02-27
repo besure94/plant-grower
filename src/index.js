@@ -4,9 +4,10 @@ import './css/styles.css';
 import { changeState } from '../src/js/plant.js';
 import { storeState } from '../src/js/plant.js';
 import { createPlant } from '../src/js/plant.js';
-// import { canBloom } from '../src/js/plant.js';
-// import { canEatBugs } from '../src/js/plant.js';
-// import { canGlow } from '../src/js/plant.js';
+import { canBloom } from '../src/js/plant.js';
+import { canEatBugs } from '../src/js/plant.js';
+import { canGlow } from '../src/js/plant.js';
+import { applyPowerups } from '../src/js/plant.js';
 
 const createNewPlant = createPlant;
 
@@ -114,6 +115,12 @@ window.addEventListener("load", function() {
     document.getElementById('soilValue').innerText = `Soil: ${fedState.soil}`;
   };
 
+  document.getElementById("eatBugs").onclick = function() {
+    const eatingBugsState = applyPowerups(canEatBugs);
+    console.log(eatingBugsState);
+    document.getElementById('soilValue').innerText = `The plant can now eat bugs! Yum!`;
+  };
+
   // event listeners for watering a plant
 
   document.getElementById("water").onclick = function() {
@@ -134,6 +141,12 @@ window.addEventListener("load", function() {
   document.getElementById("dirtyWater").onclick = function() {
     const wateredState = stateControl(dirtyWater);
     document.getElementById('water-value').innerText = `Water: ${wateredState.water}`;
+  };
+
+  document.getElementById("bloom").onclick = function() {
+    const bloomingPlant = applyPowerups(canBloom);
+    console.log(bloomingPlant);
+    document.getElementById('water-value').innerText = `The plant is blooming!`;
   };
 
   document.getElementById("giveWater").onclick = function() {
@@ -176,6 +189,12 @@ window.addEventListener("load", function() {
   document.getElementById("darkness").onclick = function() {
     const lightenedState = stateControl(darkness);
     document.getElementById('light-value').innerText = `Light: ${lightenedState.light}`;
+  };
+
+  document.getElementById("glow").onclick = function() {
+    const glowingPlant = applyPowerups(canGlow);
+    console.log(glowingPlant);
+    document.getElementById('light-value').innerText = `The plant is glowing! Beautiful!`;
   };
 
   document.getElementById("givePlantLight").onclick = function() {

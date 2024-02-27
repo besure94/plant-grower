@@ -32,6 +32,7 @@ window.addEventListener("load", function() {
   const plantName = document.getElementById("givePlantName");
   const create = document.getElementById("create");
   const plant = document.getElementById("plant");
+  const plantGrowerDiv = document.getElementById("plantGrowerFunctions");
   // event listener for creating a plant
   document.getElementById("createPlant").onclick = function() {
     createPlant.setAttribute("class", "hidden");
@@ -39,13 +40,14 @@ window.addEventListener("load", function() {
     create.removeAttribute("class", "hidden");
   };
 
-  document.getElementById("create").addEventListener("click", function() {
+  create.addEventListener("click", function() {
     const plantNameValue = plantName.value;
     const createdPlant = createNewPlant(plantNameValue);
     plant.innerText = createdPlant.name;
     plantName.setAttribute("class", "hidden");
     create.setAttribute("class", "hidden");
     createPlant.removeAttribute("class", "hidden");
+    plantGrowerDiv.removeAttribute("class", "hidden");
   });
 
   // event listeners for feeding a plant

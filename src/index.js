@@ -3,10 +3,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import { changeState } from '../src/js/plant.js';
 import { storeState } from '../src/js/plant.js';
-import { createPlant } from '../src/js/plant.js';
-import { canBloom } from '../src/js/plant.js';
-import { canEatBugs } from '../src/js/plant.js';
-import { canGlow } from '../src/js/plant.js';
+// import { createPlant } from '../src/js/plant.js';
+// import { canBloom } from '../src/js/plant.js';
+// import { canEatBugs } from '../src/js/plant.js';
+// import { canGlow } from '../src/js/plant.js';
 
 const feed = changeState("soil")(1);
 // const healthyFood = changeState("soil")(5);
@@ -23,13 +23,22 @@ const giveLight = changeState("light")(1);
 // const sunlight = changeState("light")(2.5);
 // const badLight = changeState("light")(-1);
 
+const stateControl = storeState();
+
 window.addEventListener("load", function() {
   document.getElementById("feed").onclick = function() {
     const fedState = stateControl(feed);
-    // const healthyFoodState = stateControl(healthyFood);
-    // const averageFoodState = stateControl(averageFood);
-    // const badFoodState = stateControl(badFood);
     document.getElementById('soil-value').innerText = `Soil: ${fedState.soil}`;
+  };
+
+  document.getElementById("water").onclick = function() {
+    const wateredState = stateControl(water);
+    document.getElementById('water-value').innerText = `Water: ${wateredState.water}`;
+  };
+
+  document.getElementById("giveLight").onclick = function() {
+    const lightenedState = stateControl(giveLight);
+    document.getElementById('light-value').innerText = `Light: ${lightenedState.light}`;
   };
 
   document.getElementById('show-state').onclick = function() {

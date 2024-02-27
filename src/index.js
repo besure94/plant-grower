@@ -9,9 +9,9 @@ import { storeState } from '../src/js/plant.js';
 // import { canGlow } from '../src/js/plant.js';
 
 const feed = changeState("soil")(1);
-// const healthyFood = changeState("soil")(5);
-// const averageFood = changeState("soil")(2.5);
-// const badFood = changeState("soil")(-1);
+const healthyFood = changeState("soil")(5);
+const averageFood = changeState("soil")(2.5);
+const badFood = changeState("soil")(-1);
 
 const water = changeState("water")(1);
 // const healthyWater = changeState("water")(5);
@@ -28,6 +28,21 @@ const stateControl = storeState();
 window.addEventListener("load", function() {
   document.getElementById("feed").onclick = function() {
     const fedState = stateControl(feed);
+    document.getElementById('soil-value').innerText = `Soil: ${fedState.soil}`;
+  };
+
+  document.getElementById("healthyFood").onclick = function() {
+    const fedState = stateControl(healthyFood);
+    document.getElementById('soil-value').innerText = `Soil: ${fedState.soil}`;
+  };
+
+  document.getElementById("averageFood").onclick = function() {
+    const fedState = stateControl(averageFood);
+    document.getElementById('soil-value').innerText = `Soil: ${fedState.soil}`;
+  };
+
+  document.getElementById("badFood").onclick = function() {
+    const fedState = stateControl(badFood);
     document.getElementById('soil-value').innerText = `Soil: ${fedState.soil}`;
   };
 

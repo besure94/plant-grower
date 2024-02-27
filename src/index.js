@@ -136,6 +136,26 @@ window.addEventListener("load", function() {
     document.getElementById('water-value').innerText = `Water: ${wateredState.water}`;
   };
 
+  document.getElementById("giveWater").onclick = function() {
+    const wateredState = stateControl(water);
+    document.getElementById('waterValue').innerText = `Water: ${wateredState.water}`;
+  };
+
+  document.getElementById("giveHealthyWater").onclick = function() {
+    const wateredState = stateControl(healthyWater);
+    document.getElementById('waterValue').innerText = `Water: ${wateredState.water}`;
+  };
+
+  document.getElementById("giveTapWater").onclick = function() {
+    const wateredState = stateControl(tapWater);
+    document.getElementById('waterValue').innerText = `Water: ${wateredState.water}`;
+  };
+
+  document.getElementById("giveDirtyWater").onclick = function() {
+    const wateredState = stateControl(dirtyWater);
+    document.getElementById('waterValue').innerText = `Water: ${wateredState.water}`;
+  };
+
   // event listeners for giving light to a plant
 
   document.getElementById("giveLight").onclick = function() {

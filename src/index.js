@@ -94,6 +94,26 @@ window.addEventListener("load", function() {
     document.getElementById('soil-value').innerText = `Soil: ${fedState.soil}`;
   };
 
+  document.getElementById("feedPlant").onclick = function() {
+    const fedState = stateControl(feed);
+    document.getElementById('soilValue').innerText = `Soil: ${fedState.soil}`;
+  };
+
+  document.getElementById("feedHealthyFood").onclick = function() {
+    const fedState = stateControl(healthyFood);
+    document.getElementById('soilValue').innerText = `Soil: ${fedState.soil}`;
+  };
+
+  document.getElementById("feedAverageFood").onclick = function() {
+    const fedState = stateControl(averageFood);
+    document.getElementById('soilValue').innerText = `Soil: ${fedState.soil}`;
+  };
+
+  document.getElementById("feedBadFood").onclick = function() {
+    const fedState = stateControl(badFood);
+    document.getElementById('soilValue').innerText = `Soil: ${fedState.soil}`;
+  };
+
   // event listeners for watering a plant
 
   document.getElementById("water").onclick = function() {

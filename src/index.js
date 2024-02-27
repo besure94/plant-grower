@@ -3,10 +3,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import { changeState } from '../src/js/plant.js';
 import { storeState } from '../src/js/plant.js';
-// import { createPlant } from '../src/js/plant.js';
+import { createPlant } from '../src/js/plant.js';
 // import { canBloom } from '../src/js/plant.js';
 // import { canEatBugs } from '../src/js/plant.js';
 // import { canGlow } from '../src/js/plant.js';
+
+const createNewPlant = createPlant;
 
 const feed = changeState("soil")(1);
 const healthyFood = changeState("soil")(5);
@@ -26,6 +28,26 @@ const darkness = changeState("light")(-1);
 const stateControl = storeState();
 
 window.addEventListener("load", function() {
+  const createPlant = document.getElementById("createPlant");
+  const plantName = document.getElementById("givePlantName");
+  const create = document.getElementById("create");
+  const plant = document.getElementById("plant");
+  // event listener for creating a plant
+  document.getElementById("createPlant").onclick = function() {
+    createPlant.setAttribute("class", "hidden");
+    plantName.removeAttribute("class", "hidden");
+    create.removeAttribute("class", "hidden");
+  };
+
+  document.getElementById("create").addEventListener("click", function() {
+    const plantNameValue = plantName.value;
+    const createdPlant = createNewPlant(plantNameValue);
+    plant.innerText = createdPlant.name;
+    plantName.setAttribute("class", "hidden");
+    create.setAttribute("class", "hidden");
+    createPlant.removeAttribute("class", "hidden");
+  });
+
   // event listeners for feeding a plant
   document.getElementById("feed").onclick = function() {
     const fedState = stateControl(feed);
@@ -93,8 +115,5 @@ window.addEventListener("load", function() {
 
   // event listener to show state of a plant
 
-  document.getElementById('show-state').onclick = function() {
-    const currentState = stateControl();
-    document.getElementById('soil-value').innerText = `Soil: ${currentState.soil}`;
-  };
+  // code to be added
 });

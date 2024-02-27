@@ -19,9 +19,9 @@ const tapWater = changeState("water")(2.5);
 const dirtyWater = changeState("water")(-1);
 
 const giveLight = changeState("light")(1);
-// const uvLight = changeState("light")(5);
-// const sunlight = changeState("light")(2.5);
-// const badLight = changeState("light")(-1);
+const uvLight = changeState("light")(5);
+const sunlight = changeState("light")(2.5);
+const darkness = changeState("light")(-1);
 
 const stateControl = storeState();
 
@@ -75,6 +75,23 @@ window.addEventListener("load", function() {
     const lightenedState = stateControl(giveLight);
     document.getElementById('light-value').innerText = `Light: ${lightenedState.light}`;
   };
+
+  document.getElementById("uvLight").onclick = function() {
+    const lightenedState = stateControl(uvLight);
+    document.getElementById('light-value').innerText = `Light: ${lightenedState.light}`;
+  };
+
+  document.getElementById("sunlight").onclick = function() {
+    const lightenedState = stateControl(sunlight);
+    document.getElementById('light-value').innerText = `Light: ${lightenedState.light}`;
+  };
+
+  document.getElementById("darkness").onclick = function() {
+    const lightenedState = stateControl(darkness);
+    document.getElementById('light-value').innerText = `Light: ${lightenedState.light}`;
+  };
+
+  // event listener to show state of a plant
 
   document.getElementById('show-state').onclick = function() {
     const currentState = stateControl();

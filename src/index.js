@@ -33,6 +33,11 @@ window.addEventListener("load", function() {
   const create = document.getElementById("create");
   const plant = document.getElementById("plant");
   const plantGrowerDiv = document.getElementById("plantGrowerFunctions");
+
+  const createAnotherPlant = document.getElementById("createAnotherPlant");
+  const giveAnotherPlantName = document.getElementById("giveAnotherName");
+  const newPlantButton = document.getElementById("createNewPlant");
+  const additionalPlantDiv = document.getElementById("additionalPlant");
   // event listener for creating a plant
   document.getElementById("createPlant").onclick = function() {
     createPlant.setAttribute("class", "hidden");
@@ -46,8 +51,26 @@ window.addEventListener("load", function() {
     plant.innerText = createdPlant.name;
     plantName.setAttribute("class", "hidden");
     create.setAttribute("class", "hidden");
-    createPlant.removeAttribute("class", "hidden");
+    createPlant.setAttribute("class", "hidden");
     plantGrowerDiv.removeAttribute("class", "hidden");
+    createAnotherPlant.removeAttribute("class", "hidden");
+  });
+
+  document.getElementById("createAnotherPlant").onclick = function() {
+    createAnotherPlant.setAttribute("class", "hidden");
+    giveAnotherPlantName.removeAttribute("class", "hidden");
+    newPlantButton.removeAttribute("class", "hidden");
+  };
+
+  newPlantButton.addEventListener("click", function() {
+    const newPlantNameValue = giveAnotherPlantName.value;
+    const newlyCreatedPlant = createNewPlant(newPlantNameValue);
+    additionalPlantDiv.innerText = newlyCreatedPlant.name;
+    giveAnotherPlantName.setAttribute("class", "hidden");
+    newPlantButton.setAttribute("class", "hidden");
+    createAnotherPlant.setAttribute("class", "hidden");
+    additionalPlantDiv.removeAttribute("class", "hidden");
+    document.getElementById("additionalPlantFunctions").removeAttribute("class", "hidden");
   });
 
   // event listeners for feeding a plant

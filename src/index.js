@@ -14,9 +14,9 @@ const averageFood = changeState("soil")(2.5);
 const badFood = changeState("soil")(-1);
 
 const water = changeState("water")(1);
-// const healthyWater = changeState("water")(5);
-// const okayWater = changeState("water")(2.5);
-// const badWater = changeState("water")(-1);
+const healthyWater = changeState("water")(5);
+const tapWater = changeState("water")(2.5);
+const dirtyWater = changeState("water")(-1);
 
 const giveLight = changeState("light")(1);
 // const uvLight = changeState("light")(5);
@@ -26,6 +26,7 @@ const giveLight = changeState("light")(1);
 const stateControl = storeState();
 
 window.addEventListener("load", function() {
+  // event listeners for feeding a plant
   document.getElementById("feed").onclick = function() {
     const fedState = stateControl(feed);
     document.getElementById('soil-value').innerText = `Soil: ${fedState.soil}`;
@@ -46,10 +47,29 @@ window.addEventListener("load", function() {
     document.getElementById('soil-value').innerText = `Soil: ${fedState.soil}`;
   };
 
+  // event listeners for watering a plant
+
   document.getElementById("water").onclick = function() {
     const wateredState = stateControl(water);
     document.getElementById('water-value').innerText = `Water: ${wateredState.water}`;
   };
+
+  document.getElementById("healthyWater").onclick = function() {
+    const wateredState = stateControl(healthyWater);
+    document.getElementById('water-value').innerText = `Water: ${wateredState.water}`;
+  };
+
+  document.getElementById("tapWater").onclick = function() {
+    const wateredState = stateControl(tapWater);
+    document.getElementById('water-value').innerText = `Water: ${wateredState.water}`;
+  };
+
+  document.getElementById("dirtyWater").onclick = function() {
+    const wateredState = stateControl(dirtyWater);
+    document.getElementById('water-value').innerText = `Water: ${wateredState.water}`;
+  };
+
+  // event listeners for giving light to a plant
 
   document.getElementById("giveLight").onclick = function() {
     const lightenedState = stateControl(giveLight);
